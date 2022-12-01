@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>jQuery and Bootstrap Exercises</title>
+    <style>
+        body {
+            margin: 100px;
+        }
+
+        .circle,
+        .square {
+            width: 90px;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            background: dodgerblue;
+        }
+
+        .square {
+            border-radius: 0;
+            background: slateblue;
+        }
+
+        .box {
+            background: #ddd;
+            width: 114px;
+            aspect-ratio: 1;
+            padding: 10px;
+            border: 2px dashed #aaa;
+        }
+
+        .circlecc {
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            background-image: linear-gradient(45deg, slateblue, paleturquoise);
+            position: relative;
+        }
+
+        .squarezk {
+            background: rgb(255, 0, 0);
+            width: 120px;
+            height: 70px;
+            padding: 10px;
+        }
+
+        .circle2{ 
+            width: 90px;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            background: rgb(51, 255, 24); 
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TODO 1: Add tooltip -->
+    Michelle<br>
+    <a href="#" data-toggle="tooltip" title="This is a button!"><button type="button" class="btn btn-warning btn-lg mb-5">Button</button></a>
+
+    <br><br>
+    Kah Shuen
+    <div class="circle mb-5"></div>
+
+    Bryan
+    <div class="square mb-2"></div>
+    <button type="button" id="buttonb" class="btn-sm btn-dark mb-4 btn-add">Add</button>
+    <div class="box"></div>
+
+    <br><br>
+    Celest<br>
+    <button type="button" id="buttoncc" class="btn-sm btn-dark mb-4">Animate</button>
+    <div class="circlecc"></div>
+
+    <br><br>
+    Zhe Kai
+    <div class="square mb-2" id="squarezk"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialise tooltips (Michelle)
+            $('[data-bs-toggle="tooltip"]').tooltip();
+
+            // TODO 2: Add toggle function (Kah Shuen)
+            $(".circle").click(function () {
+                $(".circle").toggleClass("circle2");
+            });
+
+            // TODO 3: Clone square and append to grey box (Bryan)
+            $("#buttonb").click(function () {
+                $(".square:first").clone().appendTo(".box");
+            });
+
+            //Celest
+            $("#buttoncc").click(function () {
+                $(".circlecc").animate({ left: '150px' });
+            });
+
+            //Zhe Kai
+            $("#squarezk").click(function () {
+                $(this).fadeOut();
+            });
+            $("#squarezk").click(function () {
+                $(this).fadeOut().fadeIn(5000);
+            });
+        });
+    </script>
+</body>
+
+</html>
